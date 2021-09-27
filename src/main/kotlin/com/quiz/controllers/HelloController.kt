@@ -7,10 +7,9 @@ import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 
 @Controller("/hello")
-class HelloController( @Client("https://swapi.dev/api/") val httpClient: HttpClient ) {
+class HelloController() {
     @Get(produces = [MediaType.TEXT_PLAIN])
     fun index(): String {
-        val result: String = httpClient.toBlocking().retrieve("/people/1/")
-        return "$result"
+        return ""
     }
 }

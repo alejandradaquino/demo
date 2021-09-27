@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 @JsonNaming(
     PropertyNamingStrategies.SnakeCaseStrategy::class
 )
-class Starship {
+class SwapiStarship {
     lateinit var name: String
     lateinit var model: String
     lateinit var manufacturer: String

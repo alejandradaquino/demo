@@ -15,8 +15,8 @@ class PlanetTest() {
 
     @Test
     fun `when deserialize character fields are ok`() {
-        val planet = mapper.readValue(File("src/test/resources/Planet.json"), Planet::class.java)
+        val swapiPlanet = mapper.readValue(File("src/test/resources/Planet.json"), SwapiPlanet::class.java)
 
-        Assertions.assertThat(planet.name).isEqualTo("Yavin IV")
+        Assertions.assertThat(swapiPlanet.name).isEqualTo("Yavin IV")
     }
 }

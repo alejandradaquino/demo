@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 @MicronautTest
-class CharacterTest() {
+class SwapiCharacterTest() {
 
     @Inject
     lateinit var mapper: ObjectMapper
 
     @Test
     fun `when deserialize character fields are ok`() {
-        val character = mapper.readValue(File("src/test/resources/Luke.json"), Character::class.java)
+        val character = mapper.readValue(File("src/test/resources/Luke.json"), SwapiCharacter::class.java)
 
         Assertions.assertThat(character.name).isEqualTo("Luke Skywalker")
         Assertions.assertThat(character.homeworld).isEqualTo("https://swapi.dev/api/planets/1/")

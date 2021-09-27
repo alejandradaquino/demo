@@ -1,5 +1,5 @@
 package com.quiz.facade.model
 
-class Planet {
+class SwapiPlanet {
     lateinit var name: String
 }
