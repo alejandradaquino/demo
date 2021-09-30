@@ -1,13 +1,12 @@
 package com.quiz.facade.model
 
-class SwapiCharacter {
-    fun parsePlanetId(): Long {
-        return 1
-    }
+import com.quiz.utils.IdExtractor
+import com.quiz.utils.IdExtractor.extract
 
-    fun parseStarshipId(): List<Long> {
-        return listOf(2)
-    }
+class SwapiCharacter {
+    fun parsePlanetId() = extract(homeworld)
+
+    fun parseStarshipId() = starships.map { extract(it) }
 
     lateinit var name: String
     lateinit var homeworld: String

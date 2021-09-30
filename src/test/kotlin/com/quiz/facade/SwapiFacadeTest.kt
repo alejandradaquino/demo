@@ -37,12 +37,12 @@ class SwapiFacadeTest() {
     }
 
     @Test
-    fun test() {
+    fun `when calling facade then make a request for each character`() {
 
         Assertions.assertThat(httpClient).isNotNull
 
         val characters = SwapiFacade(httpClient, mapper).getAllCharacters()
 
-        Assertions.assertThat(characters).isNotNull
+        Assertions.assertThat(characters).hasSize(82)
     }
 }
