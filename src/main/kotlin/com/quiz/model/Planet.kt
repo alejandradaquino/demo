@@ -1,3 +1,3 @@
 package com.quiz.model
 
-data class Planet(var name: String)
+data class Planet(var id: Long, var name: String)

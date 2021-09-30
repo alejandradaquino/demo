@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
     PropertyNamingStrategies.SnakeCaseStrategy::class
 )
 data class Starship(
+    var id: Long,
     var name: String,
     var model: String,
     var manufacturer: String,

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 @MicronautTest
-class StarshipTest() {
+class SwapiStarshipTest() {
 
     @Inject
     lateinit var mapper: ObjectMapper
