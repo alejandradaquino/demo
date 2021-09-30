@@ -9,4 +9,8 @@ class CharacterTestBuilder {
     var starshipIds: List<Long> = listOf(33, 44, 24, 2)
 
     fun build() = Character(id, name, planetId, starshipIds)
+    fun withId(id: Long): CharacterTestBuilder {
+        this.id = id
+        return this
+    }
 }

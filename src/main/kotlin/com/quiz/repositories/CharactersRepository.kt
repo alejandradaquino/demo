@@ -8,4 +8,8 @@ class CharactersRepository {
         throw RuntimeException("Implement me")
     }
 
+    fun findById(it: Long): Character {
+        throw RuntimeException("Implement me")
+    }
+
 }
