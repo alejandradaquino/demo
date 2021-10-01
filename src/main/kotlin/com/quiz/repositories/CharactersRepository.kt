@@ -1,15 +1,10 @@
 package com.quiz.repositories
 
 import com.quiz.model.Character
-import java.lang.RuntimeException
 
-class CharactersRepository {
-    fun findByName(charactersName: String): Character {
-        throw RuntimeException("Implement me")
-    }
+interface CharactersRepository {
+    fun findByName(charactersName: String): Character
 
-    fun findById(it: Long): Character {
-        throw RuntimeException("Implement me")
-    }
+    fun findById(it: Long): Character
 
 }
