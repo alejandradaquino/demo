@@ -60,7 +60,6 @@ class RepositoriesInitializerServiceTest() {
     @Captor
     lateinit var planetCaptor: ArgumentCaptor<Planet>
 
-
     @Captor
     lateinit var starshipCaptor: ArgumentCaptor<Starship>
 

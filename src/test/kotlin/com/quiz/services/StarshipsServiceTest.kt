@@ -34,8 +34,8 @@ class StarshipsServiceTest() {
 
     val character1 = CharacterTestBuilder().withId(1).build()
 
-    val character2 = CharacterTestBuilder().withId(1).build()
-    val character3 = CharacterTestBuilder().withId(1).build()
+    val character2 = CharacterTestBuilder().withId(2).build()
+    val character3 = CharacterTestBuilder().withId(3).build()
 
     val starship11 = StarshipTestBuilder().withId(11).build()
     val starship12 = StarshipTestBuilder().withId(12).build()
@@ -54,7 +54,7 @@ class StarshipsServiceTest() {
     @Test
     fun `when ask for inhabitants of a planet it search relation and get response`() {
         `when`(planetRepository.findByName(planet.name)).thenReturn(planet)
-        `when`(charactersRepository.findById(character2.id)).thenReturn(character1)
+        `when`(charactersRepository.findById(character2.id)).thenReturn(character2)
         `when`(charactersRepository.findById(character3.id)).thenReturn(character3)
         `when`(charactersPlanetRelationship.findCharactersBy(planet.id)).thenReturn(
             setOf(character2.id, character3.id)
