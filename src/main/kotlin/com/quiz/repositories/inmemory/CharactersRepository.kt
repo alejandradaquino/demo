@@ -2,8 +2,10 @@ package com.quiz.repositories.inmemory
 
 import com.quiz.model.Character
 import com.quiz.repositories.CharactersRepository
+import jakarta.inject.Singleton
 import java.lang.RuntimeException
 
+@Singleton
 class InMemoryCharactersRepository : CharactersRepository {
     private val characters = mutableSetOf<Character>()
 

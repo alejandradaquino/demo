@@ -1,7 +1,9 @@
 package com.quiz.repositories.inmemory
 
 import com.quiz.repositories.CharacterPlanetRelationshipRepository
+import jakarta.inject.Singleton
 
+@Singleton
 class InMemoryCharacterPlanetRelationshipRepository : CharacterPlanetRelationshipRepository {
     private val charactersByPlanet = mutableMapOf<Long, MutableSet<Long>>()
 

@@ -3,8 +3,10 @@ package com.quiz.repositories.inmemory
 import com.quiz.model.Character
 import com.quiz.model.Planet
 import com.quiz.repositories.PlanetRepository
+import jakarta.inject.Singleton
 import java.lang.RuntimeException
 
+@Singleton
 class InMemoryPlanetRepository : PlanetRepository {
     private val planets = mutableSetOf<Planet>()
 

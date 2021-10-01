@@ -1,7 +1,9 @@
 package com.quiz.repositories.inmemory
 
 import com.quiz.repositories.CharacterStarshipRelationshipRepository
+import jakarta.inject.Singleton
 
+@Singleton
 class InMemoryCharacterStarshipRelationshipRepository : CharacterStarshipRelationshipRepository {
     private val starshipsByCharacter = mutableMapOf<Long, MutableSet<Long>>()
     override fun findStarshipsFor(id: Long): Set<Long> {
