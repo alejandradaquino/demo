@@ -5,7 +5,6 @@ import com.quiz.builders.PlanetTestBuilder
 import com.quiz.builders.StarshipTestBuilder
 import com.quiz.repositories.*
 import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
@@ -71,7 +70,7 @@ class StarshipsServiceTest() {
         `when`(starshipRepository.findById(11)).thenReturn(starship11)
         `when`(starshipRepository.findById(12)).thenReturn(starship12)
         `when`(characterStarshipRelationship.findStarshipsFor(character1.id)).thenReturn(
-            listOf(starship11.id, starship12.id)
+            setOf(starship11.id, starship12.id)
         )
     }
 }

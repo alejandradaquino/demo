@@ -3,7 +3,7 @@ package com.quiz.repositories.inmemory
 import com.quiz.repositories.CharacterPlanetRelationshipRepository
 
 class InMemoryCharacterPlanetRelationshipRepository : CharacterPlanetRelationshipRepository {
-    private val charactersByPlanet = mutableMapOf<Long, MutableSet<Long>>().withDefault { mutableSetOf() }
+    private val charactersByPlanet = mutableMapOf<Long, MutableSet<Long>>()
 
     override fun findCharactersBy(planetId: Long): Set<Long> {
         return findInhabitantsSet(planetId)

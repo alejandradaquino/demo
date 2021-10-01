@@ -123,9 +123,9 @@ class RepositoriesInitializerServiceTest() {
     }
 
     private fun relationWithStarshipIsRegistered() {
-        verify(characterStarshipRelationship).addCharacterToStarship(
-            characterIdCaptor.capture(),
-            starshipIdCaptor.capture()
+        verify(characterStarshipRelationship).addRelation(
+            starshipIdCaptor.capture(),
+            characterIdCaptor.capture()
         )
         assertThat(characterIdCaptor.value).isEqualTo(12)
         assertThat(starshipIdCaptor.value).isEqualTo(10)

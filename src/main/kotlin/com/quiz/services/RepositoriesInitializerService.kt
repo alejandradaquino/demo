@@ -19,7 +19,7 @@ class RepositoriesInitializerService(
         facade.getAllCharacters().forEach {
             characterPlanetRelationshipRepository.addCharacterToPlanet(it.id, it.planetId)
             it.starshipIds.forEach { starshipId ->
-                characterStarshipRelationshipRepository.addCharacterToStarship(it.id, starshipId)
+                characterStarshipRelationshipRepository.addRelation(it.id, starshipId)
                 if (starshipRepository.notExists(starshipId)) {
                     starshipRepository.saveStarship(facade.getStarshipById(starshipId))
                 }
