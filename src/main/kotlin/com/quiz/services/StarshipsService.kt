@@ -6,8 +6,8 @@ class StarshipsService(
     private val charactersRepository: CharactersRepository,
     private val characterStarshipRelationship: CharacterStarshipRelationshipRepository,
     private val starshipRepository: StarshipRepository,
-    val planetRepository: PlanetRepository,
-    val charactersPlanetRelationship: CharacterPlanetRelationshipRepository
+    private val planetRepository: PlanetRepository,
+    private val charactersPlanetRelationship: CharacterPlanetRelationshipRepository
 ) {
 
     fun findStarshipsUsedBy(charactersName: String) = characterStarshipRelationship

@@ -52,6 +52,7 @@ class SwapiFacadeTest() {
         val characters = SwapiFacade(httpClient).getAllCharacters()
 
         assertThat(characters).hasSize(82)
+        assertThat(characters[0].name).isEqualTo("Luke Skywalker")
     }
 
     @Test
@@ -62,6 +63,7 @@ class SwapiFacadeTest() {
         val planets = SwapiFacade(httpClient).getAllPlanets()
 
         assertThat(planets).hasSize(59)
+        assertThat(planets[0].name).isEqualTo("Yavin IV")
     }
 
     @Test

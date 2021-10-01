@@ -3,6 +3,7 @@ package com.quiz.facade
 import com.quiz.facade.model.SwapiCharacter
 import com.quiz.facade.model.SwapiPlanet
 import com.quiz.facade.model.SwapiStarship
+import com.quiz.model.Character
 import com.quiz.model.Planet
 import com.quiz.model.Starship
 import io.micronaut.http.client.HttpClient
@@ -15,7 +16,7 @@ import kotlin.streams.toList
 @Singleton
 class SwapiFacade(@Client("https://swapi.dev/api/") val httpClient: HttpClient) {
 
-    fun getAllCharacters(): List<Unit> {
+    fun getAllCharacters(): List<Character> {
         return range(1, TOTAL_CHARACTERS).toLong().map {
             httpClient.toBlocking().retrieve("/people/$it/", SwapiCharacter::class.java).toModel(it)
         }
