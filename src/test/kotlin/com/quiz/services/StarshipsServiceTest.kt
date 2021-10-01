@@ -58,7 +58,7 @@ class StarshipsServiceTest() {
         `when`(charactersRepository.findById(character2.id)).thenReturn(character1)
         `when`(charactersRepository.findById(character3.id)).thenReturn(character3)
         `when`(charactersPlanetRelationship.findCharactersBy(planet.id)).thenReturn(
-            listOf(character2.id, character3.id)
+            setOf(character2.id, character3.id)
         )
 
         val inhabitants = service.findInhabitantsNamesOf(planet.name)
