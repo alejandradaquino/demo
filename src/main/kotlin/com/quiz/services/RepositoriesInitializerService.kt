@@ -17,11 +17,13 @@ class RepositoriesInitializerService(
 
     val logger = LoggerFactory.getLogger(RepositoriesInitializerService::class.java)
     fun initialize() {
-        logger.info("Starting initializer: Planets")
-        facade.getAllPlanets().forEach { planetRepository.save(it) }
+        facade.getAllPlanets().forEach {
+            planetRepository.save(it)
+            logger.info("Planet ${it.name}")
+        }
         logger.info("Planets completed")
         facade.getAllCharacters().forEach {
-            logger.info("Updating info of charactar ${it.name}")
+            logger.info("Updating info of character ${it.name}")
             characterPlanetRelationshipRepository.addCharacterToPlanet(it.id, it.planetId)
             it.starshipIds.forEach { starshipId ->
                 characterStarshipRelationshipRepository.addRelation(starshipId, it.id)

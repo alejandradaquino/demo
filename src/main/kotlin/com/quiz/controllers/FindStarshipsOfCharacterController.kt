@@ -9,7 +9,7 @@ import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 
 @Controller
-class FindStarshipsOfUserController(val service: StarshipsService) {
+class FindStarshipsOfCharacterController(private val service: StarshipsService) {
     @Get(value = "/character/{characterName}/starships", produces = [MediaType.APPLICATION_JSON])
     fun findStarshipsByUser(@PathVariable characterName: String) =
         service.findStarshipsUsedBy(characterName)
