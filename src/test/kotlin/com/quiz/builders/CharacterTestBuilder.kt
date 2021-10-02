@@ -1,9 +1,10 @@
 package com.quiz.builders
 
 import com.quiz.model.Character
+import com.quiz.model.CharacterId
 
 class CharacterTestBuilder {
-    private var id: Long = 2
+    private var id: CharacterId = 2
     private var name: String = Math.random().toString()
     private var planetId: Long = 23L
     private var starshipIds: List<Long> = listOf(33, 44, 24, 2)

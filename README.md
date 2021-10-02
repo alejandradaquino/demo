@@ -1,12 +1,18 @@
-## Micronaut 3.0.2 Documentation
+##Quiz test documentation
 
-- [User Guide](https://docs.micronaut.io/3.0.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.0.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.0.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+To run build the project run the following command
 
-## Feature http-client documentation
+`` ./gradlew assemble``
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+then create the docker image
+
+`` docker build . -t quiz-docker``
+
+then run it
+
+```docker run -p 6969:6969 --rm  quiz-docker```
+
+that will start the service and let it working in the port 6969
+
+
 

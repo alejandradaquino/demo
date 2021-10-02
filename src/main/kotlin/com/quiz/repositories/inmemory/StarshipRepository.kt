@@ -7,19 +7,19 @@ import java.lang.RuntimeException
 
 @Singleton
 class InMemoryStarshipRepository : StarshipRepository {
-    private val starships = mutableSetOf<Starship>()
+    private val planets = mutableSetOf<Starship>()
 
 
     override fun findById(id: Long): Starship {
-        return starships.find { it.id == id } ?: throw RuntimeException("Starship not found")
+        return planets.find { it.id == id } ?: throw RuntimeException("Starship not found")
     }
 
     override fun saveStarship(starship: Starship) {
-        starships.add(starship)
+        planets.add(starship)
     }
 
     override fun notExists(starshipId: Long): Boolean {
-        return starships.all { it.id != starshipId }
+        return planets.all { it.id != starshipId }
     }
 
 }

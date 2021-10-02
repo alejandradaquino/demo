@@ -1,6 +1,7 @@
 package com.quiz.repositories.inmemory
 
 import com.quiz.model.Character
+import com.quiz.model.CharacterId
 import com.quiz.repositories.CharactersRepository
 import jakarta.inject.Singleton
 import java.lang.RuntimeException
@@ -14,7 +15,7 @@ class InMemoryCharactersRepository : CharactersRepository {
 
     }
 
-    override fun findById(id: Long): Character {
+    override fun findById(id: CharacterId): Character {
         return characters.find { it.id == id } ?: throw RuntimeException("Character not found")
     }
 

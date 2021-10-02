@@ -25,7 +25,7 @@ class SwapiFacade(@Client("https://swapi.dev/api/") val httpClient: HttpClient) 
             try {
                 httpClient.toBlocking().retrieve("/people/$it/", SwapiCharacter::class.java).toModel(it)
             } catch (error: Exception) {
-                logger.error("Exception finding people with id: $it", error)
+                logger.warn("Exception finding people with id: $it", error)
                 null
             }
         }
@@ -36,11 +36,12 @@ class SwapiFacade(@Client("https://swapi.dev/api/") val httpClient: HttpClient) 
             try {
                 httpClient.toBlocking().retrieve("/planets/$it/", SwapiPlanet::class.java).toModel(it)
             } catch (error: Exception) {
-                logger.error("Exception finding planet with id: $it", error)
+                logger.warn("Exception finding planet with id: $it", error)
                 null
             }
         }
     }
+
 
     fun getStarshipById(id: Long): Starship {
         return httpClient.toBlocking().retrieve("/starships/$id/", SwapiStarship::class.java).toModel(id)

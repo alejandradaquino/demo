@@ -39,7 +39,7 @@ class SwapiFacadeTest() {
         doAnswer {
             val url = it.arguments[0] as String
             if (url.startsWith("/people/")) luke
-            else if (url.startsWith("/planet/")) planet
+            else if (url.startsWith("/planets/")) planet
             else deathStar
         }.`when`(blocking).retrieve(anyString(), any(Class::class.java))
     }
@@ -62,7 +62,7 @@ class SwapiFacadeTest() {
 
         val planets = SwapiFacade(httpClient).getAllPlanets()
 
-        assertThat(planets).hasSize(59)
+        assertThat(planets).hasSize(58)
         assertThat(planets[0].name).isEqualTo("Yavin IV")
     }
 

@@ -1,6 +1,7 @@
 package com.quiz.facade.model
 
 import com.quiz.model.Character
+import com.quiz.model.CharacterId
 import com.quiz.utils.IdExtractor.extract
 
 class SwapiCharacter {

@@ -1,5 +1,8 @@
 package com.quiz.repositories.inmemory
 
+import com.quiz.model.Character
+import com.quiz.model.CharacterId
+import com.quiz.model.StarshipId
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -17,9 +20,9 @@ class InMemoryCharacterStarshipRelationshipRepositoryTest() {
     fun `when saving a relationship then returns it in the set`() {
         val repository = InMemoryCharacterStarshipRelationshipRepository()
 
-        val starshipId: Long = 1
-        val characterId: Long = 2
-        repository.addRelation(characterId, starshipId)
+        val starshipId: StarshipId = 1
+        val characterId: CharacterId = 2
+        repository.addRelation(starshipId, characterId)
 
         Assertions.assertThat(repository.findStarshipsFor(characterId)).containsExactly(starshipId)
     }
@@ -28,11 +31,11 @@ class InMemoryCharacterStarshipRelationshipRepositoryTest() {
     fun `when saving more than one citizen then returns it in the set`() {
         val repository = InMemoryCharacterStarshipRelationshipRepository()
 
-        val starship1: Long = 1
-        val starship2: Long = 12
-        val characterId: Long = 2
-        repository.addRelation(characterId, starship1)
-        repository.addRelation(characterId, starship2)
+        val starship1: StarshipId = 1
+        val starship2: StarshipId = 12
+        val characterId: CharacterId = 2
+        repository.addRelation(starship1, characterId)
+        repository.addRelation(starship2, characterId)
 
         Assertions.assertThat(repository.findStarshipsFor(characterId)).containsExactly(starship1, starship2)
     }
@@ -41,19 +44,19 @@ class InMemoryCharacterStarshipRelationshipRepositoryTest() {
     fun `when saving different citizen in differents planets then returns each correctly`() {
         val repository = InMemoryCharacterStarshipRelationshipRepository()
 
-        val starship1: Long = 1
-        val starship2: Long = 12
-        val character1: Long = 2
-        val starship3: Long = 21
-        val starship4: Long = 212
-        val character2: Long = 22
-        repository.addRelation(character1, starship1)
-        repository.addRelation(character1, starship2)
-        repository.addRelation(character2, starship3)
-        repository.addRelation(character2, starship4)
+        val starship1: StarshipId = 1
+        val starship2: StarshipId = 12
+        val character1: CharacterId = 2
+        val starship3: StarshipId = 21
+        val starship4: StarshipId = 212
+        val character2: CharacterId = 22
+        repository.addRelation(starship2, character1)
+        repository.addRelation(starship1, character1)
+        repository.addRelation(starship3, character2)
+        repository.addRelation(starship4, character2)
 
 
-        Assertions.assertThat(repository.findStarshipsFor(character1)).containsExactly(starship1, starship2)
-        Assertions.assertThat(repository.findStarshipsFor(character2)).containsExactly(starship3, starship4)
+        Assertions.assertThat(repository.findStarshipsFor(character1)).containsOnly(starship1, starship2)
+        Assertions.assertThat(repository.findStarshipsFor(character2)).containsOnly(starship3, starship4)
     }
 }

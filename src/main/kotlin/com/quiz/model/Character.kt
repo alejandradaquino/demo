@@ -1,3 +1,6 @@
 package com.quiz.model
 
-data class Character(var id: Long, var name: String, var planetId: Long, var starshipIds: List<Long>)
+
+typealias CharacterId = Long
+
+data class Character(var id: CharacterId, var name: String, var planetId: Long, var starshipIds: List<StarshipId>)

@@ -1,7 +1,9 @@
 package com.quiz.model
 
+typealias StarshipId = Long
+
 data class Starship(
-    val id: Long,
+    val id: StarshipId,
     val name: String,
     val model: String,
     val manufacturer: String,

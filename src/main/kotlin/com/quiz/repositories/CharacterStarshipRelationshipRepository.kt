@@ -1,6 +1,10 @@
 package com.quiz.repositories
 
+import com.quiz.model.CharacterId
+import com.quiz.model.StarshipId
+
+
 interface CharacterStarshipRelationshipRepository {
-    fun findStarshipsFor(id: Long): Set<Long>
-    fun addRelation(starshipId: Long, id: Long)
+    fun findStarshipsFor(characterId: CharacterId): Set<StarshipId>
+    fun addRelation(starshipId: StarshipId, characterId: CharacterId)
 }

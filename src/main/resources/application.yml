@@ -1,3 +1,5 @@
 micronaut:
   application:
     name: quiz
+  server:
+    port: 6969

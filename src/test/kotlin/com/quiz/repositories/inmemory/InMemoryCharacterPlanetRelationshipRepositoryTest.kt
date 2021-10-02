@@ -1,5 +1,8 @@
 package com.quiz.repositories.inmemory
 
+import com.quiz.model.CharacterId
+import com.quiz.model.Planet
+import com.quiz.model.PlanetId
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -17,8 +20,8 @@ class InMemoryCharacterPlanetRelationshipRepositoryTest() {
     fun `when saving a relationship then returns it in the set`() {
         val repository = InMemoryCharacterPlanetRelationshipRepository()
 
-        val characterId: Long = 1
-        val planetId: Long = 2
+        val characterId: CharacterId = 1
+        val planetId: PlanetId = 2
         repository.addCharacterToPlanet(characterId, planetId)
 
         Assertions.assertThat(repository.findCharactersBy(planetId)).containsExactly(characterId)
@@ -28,9 +31,9 @@ class InMemoryCharacterPlanetRelationshipRepositoryTest() {
     fun `when saving more than one citizen then returns it in the set`() {
         val repository = InMemoryCharacterPlanetRelationshipRepository()
 
-        val characterId: Long = 1
-        val characterId2: Long = 12
-        val planetId: Long = 2
+        val characterId: CharacterId = 1
+        val characterId2: CharacterId = 12
+        val planetId: PlanetId = 2
         repository.addCharacterToPlanet(characterId, planetId)
         repository.addCharacterToPlanet(characterId2, planetId)
 
@@ -41,12 +44,12 @@ class InMemoryCharacterPlanetRelationshipRepositoryTest() {
     fun `when saving different citizen in differents planets then returns each correctly`() {
         val repository = InMemoryCharacterPlanetRelationshipRepository()
 
-        val characterId: Long = 1
-        val characterId2: Long = 12
-        val planetId: Long = 2
-        val characterId3: Long = 21
-        val characterId4: Long = 212
-        val planetId2: Long = 22
+        val characterId: CharacterId = 1
+        val characterId2: CharacterId = 12
+        val planetId: PlanetId = 2
+        val characterId3: CharacterId = 21
+        val characterId4: CharacterId = 212
+        val planetId2: PlanetId = 22
         repository.addCharacterToPlanet(characterId, planetId)
         repository.addCharacterToPlanet(characterId2, planetId)
         repository.addCharacterToPlanet(characterId3, planetId2)

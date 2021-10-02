@@ -11,6 +11,6 @@ import io.micronaut.http.client.annotation.Client
 class HelloController(service: StarshipsService) {
     @Get(produces = [MediaType.TEXT_PLAIN])
     fun index(): String {
-        return ""
+        return "Hello is working"
     }
 }

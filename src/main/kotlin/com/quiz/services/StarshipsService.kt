@@ -1,7 +1,9 @@
 package com.quiz.services
 
 import com.quiz.repositories.*
+import jakarta.inject.Singleton
 
+@Singleton
 class StarshipsService(
     private val charactersRepository: CharactersRepository,
     private val characterStarshipRelationship: CharacterStarshipRelationshipRepository,

@@ -4,9 +4,7 @@ import com.quiz.builders.CharacterTestBuilder
 import com.quiz.builders.PlanetTestBuilder
 import com.quiz.builders.StarshipTestBuilder
 import com.quiz.facade.SwapiFacade
-import com.quiz.model.Character
-import com.quiz.model.Planet
-import com.quiz.model.Starship
+import com.quiz.model.*
 import com.quiz.repositories.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -46,13 +44,13 @@ class RepositoriesInitializerServiceTest() {
     private lateinit var service: RepositoriesInitializerService
 
     @Captor
-    lateinit var planetIdCaptor: ArgumentCaptor<Long>
+    lateinit var planetIdCaptor: ArgumentCaptor<PlanetId>
 
     @Captor
-    lateinit var starshipIdCaptor: ArgumentCaptor<Long>
+    lateinit var starshipIdCaptor: ArgumentCaptor<StarshipId>
 
     @Captor
-    lateinit var characterIdCaptor: ArgumentCaptor<Long>
+    lateinit var characterIdCaptor: ArgumentCaptor<CharacterId>
 
     @Captor
     lateinit var characterCaptor: ArgumentCaptor<Character>
@@ -124,7 +122,7 @@ class RepositoriesInitializerServiceTest() {
     private fun relationWithStarshipIsRegistered() {
         verify(characterStarshipRelationship).addRelation(
             starshipIdCaptor.capture(),
-            characterIdCaptor.capture()
+            capture(characterIdCaptor)
         )
         assertThat(characterIdCaptor.value).isEqualTo(12)
         assertThat(starshipIdCaptor.value).isEqualTo(10)
@@ -141,7 +139,7 @@ class RepositoriesInitializerServiceTest() {
     }
 
     private fun thenCharacterIsRegisteredInPlanet() {
-        verify(charactersPlanetRelationship).addCharacterToPlanet(characterIdCaptor.capture(), planetIdCaptor.capture())
+        verify(charactersPlanetRelationship).addCharacterToPlanet(capture(characterIdCaptor), planetIdCaptor.capture())
         assertThat(characterIdCaptor.value).isEqualTo(12)
         assertThat(planetIdCaptor.value).isEqualTo(23)
     }
