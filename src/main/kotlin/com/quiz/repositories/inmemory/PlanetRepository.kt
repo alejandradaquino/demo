@@ -1,5 +1,6 @@
 package com.quiz.repositories.inmemory
 
+import com.quiz.exceptions.ResourceNotFoundException
 import com.quiz.model.Character
 import com.quiz.model.Planet
 import com.quiz.repositories.PlanetRepository
@@ -11,7 +12,7 @@ class InMemoryPlanetRepository : PlanetRepository {
     private val planets = mutableSetOf<Planet>()
 
     override fun findByName(name: String): Planet {
-        return planets.find { it.name == name } ?: throw RuntimeException("Planet not found")
+        return planets.find { it.name == name } ?: throw ResourceNotFoundException("Planet $name not found")
     }
 
     override fun save(it: Planet) {
