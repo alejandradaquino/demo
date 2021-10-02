@@ -27,6 +27,8 @@ http://localhost:6969/planet/{planetName}/inhabitants
 The following are examples:
 
 http://localhost:6969/character/Arvel%20Crynyd/starships
+
+
 http://localhost:6969/planet/Tatooine/inhabitants
 
 
